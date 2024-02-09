@@ -37,7 +37,8 @@ app.use(compression()); // to use gzip
 // use cookie sessions
 app.use(
 	cookieSession({
-		maxAge: 1000 * 60 * 60 * 24, // 1 day
+		//cookie session is 2day.
+		maxAge: 1000 * 60 * 60 * 24 * 2, // 1 day
 		keys: [process.env.COOKIE_SESSION_KEY],
 	})
 );
