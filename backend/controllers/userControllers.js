@@ -21,7 +21,8 @@ const getAllUsers = asyncHandler(async (req, res) => {
 	const allUsers = await User.find({})
 		.limit(pageSize)
 		.skip(pageSize * (page - 1))
-		.sort('-createdAt');
+		// .sort('-createdAt');
+		.sort({ createAt : -1 });
 
 	// send the list of orders, current page number, total number of pages available
 	res.json({
@@ -40,7 +41,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 	if (user) {
 		await user.remove();
 		res.json({
-			message: 'User removed from DB',
+			message: 'User removed from Database',
 		});
 	} else {
 		res.status(404);

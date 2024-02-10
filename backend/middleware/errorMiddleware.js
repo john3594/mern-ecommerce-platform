@@ -1,7 +1,7 @@
 // handle 404 errors
 
 const notFound = (req, res, next) => {
-	const error = new Error(`Route not found - ${req.originalUrl}`);
+	const error = new Error(`Your Request Page does not found. - ${req.originalUrl}`);
 	res.status(404);
 	next(error);
 };
